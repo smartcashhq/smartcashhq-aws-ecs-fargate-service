@@ -6,8 +6,12 @@ variable aws_lb_arn {}
 variable ecr_region {}
 variable ecr_account_id {}
 variable security_groups {}
-variable aws_lb_certificate_arn {}
-variable logdna_lambda_logs_arn {}
+
+variable aws_lb_certificate_arn {
+  type        = string
+  description = "ACM certificate ARN"
+  default     = null
+}
 
 variable health_check_path {
   default = "/health"
