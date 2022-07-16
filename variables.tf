@@ -6,6 +6,7 @@ variable aws_lb_arn {}
 variable ecr_region {}
 variable ecr_account_id {}
 variable security_groups {}
+variable logdna_lambda_logs_arn {}
 
 variable aws_lb_certificate_arn {
   type        = string
