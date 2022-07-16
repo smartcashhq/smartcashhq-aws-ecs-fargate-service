@@ -172,3 +172,14 @@ resource aws_lb_listener_rule block_header_rule {
     }
   }
 }
+
+# ---------------------------------------------------
+#    LogDNA subsciprion
+# ---------------------------------------------------
+resource aws_cloudwatch_log_subscription_filter lambda_logfilter {
+  name            = "${var.name_prefix}-${var.zenv}-${var.service_name}-filter"
+  log_group_name  = "${var.name_prefix}/fargate/${var.cluster_name}/${var.service_name}/"
+  filter_pattern  = ""
+  destination_arn = var.logdna_lambda_logs_arn
+  distribution    = "ByLogStream"
+}
